@@ -5,27 +5,45 @@ import java.util.Scanner;
 public class Tugas1Sechan {
     public static void main(String[] args) {
         
-        Scanner input = new Scanner(System.in);
+        String kata, pembalikanKata = "";
+
+        Scanner in = new Scanner(System.in);
 
         System.out.println(("Masukan kata: "));
-        String kata = input.nextLine();
+        kata = in.nextLine();
 
-        String pembalikanKata = "";
+        int panjang = kata.length();
 
-        for (int i = 0; i < kata.length(); i++) {
-            pembalikanKata = kata.charAt(i) + pembalikanKata;
+        for ( int i = (panjang - 1); i >= 0; i--) {
+            pembalikanKata += kata.charAt(i);
         }
 
-         // Stuck
-        if ( ){
+        if (kata.toLowerCase().equals(pembalikanKata.toLowerCase()))  {
+            System.out.println(kata + " adalah Palindrome.");  
+        }else{  
+            System.out.println(kata + " bukan Palindrome.");   
+        }
+
+        /* *Stuck logic
+        if ( kata == pembalikanKata ) {
             System.out.println("Palindrome");
         } else {
             System.out.println("Bukan Palindrome");
         }
+        */
+
+        /* 
+        Boolean convertStr = Boolean.valueOf(pembalikanKata);
+        if (convertStr == true) {
+           System.out.println("Palindrome");
+        } else {
+            System.out.println("Bukan Palindrome");
+        }
+        */
 
         System.out.println("Reversed kata: " + pembalikanKata);
 
-        input.close();
+        in.close();
 
     }
 }
