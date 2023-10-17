@@ -11,10 +11,10 @@ public class TugasKondisional3 {
     
     public static void main(String[] args) {
         
-        Scanner input = new Scanner(System.in); 
+        Scanner in = new Scanner(System.in); 
 
         System.out.println("Masukan nomor punggung anda ");
-        int nomorPunggung = input.nextInt();
+        int nomorPunggung = in.nextInt();
 
         if ( nomorPunggung % 2 == 0){
             if (nomorPunggung >= 50 && nomorPunggung <= 100){
@@ -32,6 +32,6 @@ public class TugasKondisional3 {
         } else {
             System.out.println("Tolong masukan angka yang valid.");
             } 
-        input.close(); 
+        in.close(); 
     }
 }

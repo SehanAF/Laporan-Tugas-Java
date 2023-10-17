@@ -13,10 +13,10 @@ public class TugasKondisional5 {
         
         System.out.println("Selamat datang di Disney Island!");
 
-        Scanner input = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
 
         System.out.println("Masukkan umur anda ");
-        int age = input.nextInt();
+        int age = in.nextInt();
 
         int tarif = 0;
 
@@ -27,7 +27,7 @@ public class TugasKondisional5 {
             DecimalFormat decimalFormat = new DecimalFormat("#,###");
             System.out.println("Tarif kamu Rp. " + decimalFormat.format(tarif));
             System.out.println("Masukkan tinggi anda ");
-            int tinggi = input.nextInt();
+            int tinggi = in.nextInt();
             if ((age >= 2 && age <= 3) && (tinggi >= 70)) {
                 tarif += 10_000;
                 System.out.println("Tarif bertambah menjadi Rp. " + decimalFormat.format(tarif));
@@ -40,7 +40,7 @@ public class TugasKondisional5 {
             DecimalFormat decimalFormat = new DecimalFormat("#,###");
             System.out.println("Tarif kamu Rp. " + decimalFormat.format(tarif));
             System.out.println("Masukan tinggi anda ");
-            int tinggi = input.nextInt();
+            int tinggi = in.nextInt();
             if ((age >= 4 && age <= 7 ) && (tinggi >= 120)) {
                 tarif += 15_000;
                 System.out.println("Tarif bertambah menjadi Rp. " + decimalFormat.format(tarif));
@@ -53,7 +53,7 @@ public class TugasKondisional5 {
             DecimalFormat decimalFormat = new DecimalFormat("#,###");
             System.out.println("Tarif kamu Rp. " + decimalFormat.format(tarif));
             System.out.println("Masukan tinggi anda ");
-            int tinggi = input.nextInt();
+            int tinggi = in.nextInt();
             if ((age >= 8 && age <= 10 ) && (tinggi >= 150)) {
                 tarif += 20_000;
                 System.out.println("Tarif bertambah menjadi Rp. " + decimalFormat.format(tarif));
@@ -67,6 +67,6 @@ public class TugasKondisional5 {
             System.out.println("Tarif kamu Rp. " + decimalFormat.format(tarif));
         }
         
-        input.close();
+        in.close();
     }
 }

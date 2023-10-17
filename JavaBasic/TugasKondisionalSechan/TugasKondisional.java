@@ -11,25 +11,25 @@ public class TugasKondisional {
 
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
 
         System.out.println("Masukan nama anda ");
-        String name = input.nextLine();
+        String name = in.nextLine();
 
         System.out.println("Masukan umur anda ");
-        int age = input.nextInt();
+        int age = in.nextInt();
 
-        input.nextLine();
+        in.nextLine();
 
         System.out.println("Masukan tempat tinggal ");
-        String place = input.nextLine();
+        String place = in.nextLine();
 
         System.out.println("Masukan nilai tabungan dalam $ ");
-        double money = input.nextDouble();
+        double money = in.nextDouble();
 
         String rank = "";
 
-        input.close();
+        in.close();
         
         if ((age >= 40) && (place.equals("Nevada")) || (place.equals("New York")) || (place.equals("Havana")) && (money > 10_000_000)) {
             rank = "Don";
