@@ -5,45 +5,28 @@ import java.util.Scanner;
 public class Tugas1Sechan {
     public static void main(String[] args) {
         
-        String kata, pembalikanKata = "";
+        String word, wordReversal = "";
 
-        Scanner in = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
         System.out.println(("Masukan kata: "));
-        kata = in.nextLine();
+        word = input.nextLine();
 
-        int panjang = kata.length();
+        int length = word.length();
 
-        for ( int i = (panjang - 1); i >= 0; i--) {
-            pembalikanKata += kata.charAt(i);
+        for ( int i = (length - 1); i >= 0; i--) {
+            wordReversal += word.charAt(i);
         }
 
-        if (kata.toLowerCase().equals(pembalikanKata.toLowerCase()))  {
-            System.out.println(kata + " adalah Palindrome.");  
+        if (word.toLowerCase().equals(wordReversal.toLowerCase()))  {
+            System.out.println(word + " adalah Palindrome.");  
         }else{  
-            System.out.println(kata + " bukan Palindrome.");   
+            System.out.println(word + " bukan Palindrome.");   
         }
 
-        /* *Stuck logic
-        if ( kata == pembalikanKata ) {
-            System.out.println("Palindrome");
-        } else {
-            System.out.println("Bukan Palindrome");
-        }
-        */
+        System.out.println("Reversed kata: " + wordReversal);
 
-        /* 
-        Boolean convertStr = Boolean.valueOf(pembalikanKata);
-        if (convertStr == true) {
-           System.out.println("Palindrome");
-        } else {
-            System.out.println("Bukan Palindrome");
-        }
-        */
-
-        System.out.println("Reversed kata: " + pembalikanKata);
-
-        in.close();
+        input.close();
 
     }
 }
