@@ -18,7 +18,6 @@ public class Tugas2 {
         input.close();
     }
     
-
     public static int findNextPalindrome(int inputNumbers) {
         while (true) {
             inputNumbers++;
@@ -38,10 +37,8 @@ public class Tugas2 {
             numberToCheck /= 10;
         }
 
-        return original == reversed;
-        
-    }
-    
+        return original == reversed; 
+    }  
 }
 
 
