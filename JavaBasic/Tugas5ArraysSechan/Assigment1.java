@@ -1,5 +1,7 @@
 package JavaBasic.Tugas5ArraysSechan;
 
+//import java.util.concurrent.Flow;
+
 public class Assigment1 {    
     public static void main(String[] args) {
         
@@ -7,35 +9,27 @@ public class Assigment1 {
             {"*", "*", "*", "X", "*"},
             {"*", "*", "*", "*", "*"},
             {"*", "*", "*", "*", "*"},
-            {"*", "*", "*", "*", "X"},
+            {"*", "X", "*", "*", "*"},
         };
 
         String findGuest = "X";
+        int emptyRoom = 0;
 
-        int indeksFloors = -1;
-        int indeksRoom = -1;
-
-        int floor = 3;
-        for(String[] floorsArrays: hotelAmaris) {
-            floor++;
-            int room = 0;
-            for (String roomArrays: floorsArrays) {
-                room++;
-                if (roomArrays.equals(findGuest)) {
-                    indeksFloors = floor;
-                    indeksRoom = room;
-                    break;
+        for (int f = 0; f < hotelAmaris.length; f++) {
+            for (int r = 0; r < hotelAmaris[f].length; r++){
+                if (hotelAmaris[f][r].equals(findGuest)) {
+                    System.out.println("Tamu berada di Lantai " + (f + 1) + " Kamar " + (r + 1) );
                 }
-            }   
-            if (indeksFloors != -1) {
-                break; 
-            }
+                if (hotelAmaris[f][r].equals("*")) {
+                    emptyRoom++;
+                }
+            }    
+        }          
+        if (emptyRoom == 0) {
+            System.out.println("Semua kamar telah terisi");
+        }else {
+            System.out.println("Jumlah kamar yang tersedia adalah " + emptyRoom + " kamar.");
         }
-
-        if (indeksFloors != -1) {
-            System.out.println("Tamu berada di Lantai " + indeksFloors + " Kamar " + indeksRoom);
-        } else {
-            System.out.println("Tamu tidak ditemukan");
-        }       
-    } 
+        
+    }    
 }
