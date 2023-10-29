@@ -1,24 +1,22 @@
 package JavaBasic.Tugas5ArraysSechan;
 
-//import java.util.concurrent.Flow;
-
-public class Assigment1 {    
+public class AssigmentHotelAmaris {    
     public static void main(String[] args) {
         
         String[][] hotelAmaris = {
             {"*", "*", "*", "X", "*"},
             {"*", "*", "*", "*", "*"},
             {"*", "*", "*", "*", "*"},
-            {"*", "X", "*", "*", "*"},
+            {"*", "*", "*", "*", "X"},
         };
 
         String findGuest = "X";
         int emptyRoom = 0;
 
-        for (int f = 0; f < hotelAmaris.length; f++) {
-            for (int r = 0; r < hotelAmaris[f].length; r++){
+        for (int f = 0; f < hotelAmaris.length; f++) { // f = floor
+            for (int r = 0; r < hotelAmaris[f].length; r++){ // r = room
                 if (hotelAmaris[f][r].equals(findGuest)) {
-                    System.out.println("Tamu berada di Lantai " + (f + 1) + " Kamar " + (r + 1) );
+                    System.out.println("Tamu berada di Lantai " + (4 - f) + " Kamar " + (r + 1) );
                 }
                 if (hotelAmaris[f][r].equals("*")) {
                     emptyRoom++;
@@ -30,6 +28,5 @@ public class Assigment1 {
         }else {
             System.out.println("Jumlah kamar yang tersedia adalah " + emptyRoom + " kamar.");
         }
-        
     }    
 }
