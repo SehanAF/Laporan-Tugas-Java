@@ -4,83 +4,70 @@ import java.util.Scanner;
 
 public class AssigmentArray2D {
     public static void main(String[] args) {
-        
         String[][] semeruClimb = {
             {"P", "X", "X", "X", "X", "X", "X", "X", "X", "", "", ""},
             {"", "X", "", "", "", "X", "X", "P3", "X", "", "X", "",},
-            {"", "X", "X", "X", "","P4", "", "", "", "", "X", "",},
+            {"", "X", "X", "X", "", "P4", "", "", "", "", "X", "",},
             {"", "TC", "", "", "", "X", "", "", "X", "X", "X", "",},
             {"", "", "X", "", "", "X", "P2", "X", "X", "X", "X", "",},
-            {"P5", "", "X", "RK", "","X", "", "", "", "", "", "P1",},
+            {"P5", "", "X", "RK", "", "X", "", "", "", "", "", "P1",},
         };
 
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Masukan Tenaga anda: ");
+        System.out.print("Masukkan tenaga awal: ");
         int energy = input.nextInt();
 
-        input.nextLine();
+        System.out.print("Masukkan jalur pendakian: ");
+        String pathway = input.next();
 
-        System.out.println("Masukan Jalur anda: ");
-        String pathway = input.nextLine();
-        
         int playerRow = 5;
         int playerCol = 11;
 
         input.close();
 
-        for (int i = 0; i < semeruClimb.length; i++) {
-            for (int j = 0; j < semeruClimb[i].length; j++) {
-                System.out.print(semeruClimb[i][j] + " ");
-            }
-            System.out.println();
-        }
+        for (int i = 0; i < pathway.length(); i++) {
+            char path = pathway.charAt(i);
+            energy--;
 
-        switch (pathway.toLowerCase()) {
-            case "L":
-                if (playerCol > 0 && !semeruClimb[playerRow][playerCol - 1].equals("X")) {
-                    semeruClimb[playerRow][playerCol] = "";
-                    playerCol--;
-                    semeruClimb[playerRow][playerCol] = "P1";
-                } else {
-                    System.out.println("Anda tidak dapat bergerak ke kiri.");
-                }
-                break;
-            case "R":
-                if (playerCol < semeruClimb[playerRow].length - 1 && !semeruClimb[playerRow][playerCol + 1].equals("X")) {
-                    semeruClimb[playerRow][playerCol] = "";
-                    playerCol++;
-                    semeruClimb[playerRow][playerCol] = "P1";
-                } else {
-                    System.out.println("Anda tidak dapat bergerak ke kanan.");
-                }
-                break;
-            case "U":
-                if (playerRow > 0 && !semeruClimb[playerRow - 1][playerCol].equals("X")) {
-                    semeruClimb[playerRow][playerCol] = "";
-                    playerRow--;
-                    semeruClimb[playerRow][playerCol] = "P1";
-                } else {
-                    System.out.println("Anda tidak dapat bergerak ke atas.");
-                }
-            case "q":
-                System.out.println("Permainan berakhir.");
-                input.close();
-                return;
-            default:
-                System.out.println("Perintah tidak valid. Gunakan L, R, atau Q.");
-        }
-    
-        /* 
-
-        if (pathway.equalsIgnoreCase("L")) {
-            if (playerCol > 0 && !semeruClimb[playerRow][playerCol - 1].equals("X")) {
+            if (path == 'L' && playerCol > 0) {
                 playerCol--;
-                semeruClimb[playerRow][playerCol] = "P1";
-            } else {
-                System.out.println("Anda tidak dapat bergerak ke kiri.");
+            } else if (path == 'R' && playerCol < semeruClimb[0].length - 1) {
+                playerCol++;
+            } else if (path == 'U' && playerRow > 0) {
+                playerRow--;
+            } else if (path == 'D' && playerRow < semeruClimb.length - 1) {
+                playerRow++;
+            } else if (path == 'R') {
+                String currentPos = semeruClimb[playerRow][playerCol];
+                if (currentPos.equals("P2") ||
+                    currentPos.equals("P3") ||
+                    currentPos.equals("P4") ||
+                    currentPos.equals("P5") ||
+                    currentPos.equals("RK") ||
+                    currentPos.equals("TC")) {
+                    energy += 10;
+                } else {
+                    System.out.println("Mohon maaf, istirahat hanya diperbolehkan di Pos yang tersedia");
+                    return;
+                }
             }
-        }  
-        */
+
+            if (energy <= 0) {
+                System.out.println("Jalur anda benar, tapi tenaga anda tidak akan kuat, coba jalur lain atau sempatkan istirahat terlebih dahulu");
+                return;
+            }
+
+            if (playerRow < 0 || playerRow >= semeruClimb.length ||
+                playerCol < 0 || playerCol >= semeruClimb[0].length) {
+                System.out.println("Jalur anda salah, anda masuk ke jurang");
+                return;
+            }
+
+            if (semeruClimb[playerRow][playerCol].equals("P")) {
+                System.out.println("Selamat Pendakian anda berhasil mencapai Puncak Mahameru, sisa tenaga anda " + energy);
+                return;
+            }
+        }
     }
 }
