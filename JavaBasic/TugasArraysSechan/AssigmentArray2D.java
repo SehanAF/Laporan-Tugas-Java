@@ -3,7 +3,7 @@ package JavaBasic.TugasArraysSechan;
 import java.util.Scanner;
 
 /* 
- * Mohon maaf bapak, agak berbeda di bagian equal R untuk istirahat, diganti menjadi K.
+ * Mohon maaf pak, agak berbeda di bagian tanda 'R' untuk istirahat, saya ganti menjadi tanda 'K'.
  * Karena saya sudah stuck beberapa hari, tetapi tidak menemukan solusinya.
  * 
  * dibawah ini adalah input untuk jalur sesuai nomor.
@@ -72,6 +72,9 @@ public class AssigmentArray2D{
                 return;
             } else if (semeruClimb[playerRow][playerCol].equals("P")) {
                 System.out.println("Selamat Pendakian anda berhasil mencapai Puncak Mahameru, sisa tenaga anda " + energy);
+                return;
+            } else {
+                System.out.println("Anda keluar dari peta, tolong masukan jalur yang benar.");
                 return;
             }
         }
