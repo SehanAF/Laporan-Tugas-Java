@@ -1,4 +1,4 @@
-package JavaBasic.Tugas5ArraysSechan;
+package JavaBasic.TugasArraysSechan;
 
 import java.util.Scanner;
 

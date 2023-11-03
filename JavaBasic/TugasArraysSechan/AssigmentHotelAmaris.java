@@ -1,4 +1,4 @@
-package JavaBasic.Tugas5ArraysSechan;
+package JavaBasic.TugasArraysSechan;
 
 public class AssigmentHotelAmaris {    
     public static void main(String[] args) {
