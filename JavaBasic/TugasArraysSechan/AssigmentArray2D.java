@@ -3,14 +3,14 @@ package JavaBasic.TugasArraysSechan;
 import java.util.Scanner;
 
 /* 
- * Mohon maaf pak, agak berbeda di bagian tanda 'R' untuk istirahat, saya ganti menjadi tanda 'K'.
- * Karena saya sudah stuck beberapa hari, tetapi tidak menemukan solusinya.
- * 
- * dibawah ini adalah input untuk jalur sesuai nomor.
- * 1. LLLLLUUULKLDDLDKUULLLUUU 
- * 2. LLLLLUUULKLDDLDUKULLLUUU
- * 3. LLUU
- * 4. LLLLLUUULKLDDLDUULLLUUU  
+    * Mohon maaf pak, agak berbeda di bagian tanda 'R' untuk istirahat, saya ganti menjadi tanda 'K'.
+    * Karena saya sudah stuck beberapa hari, tetapi tidak menemukan solusinya.
+     
+    * dibawah ini adalah input untuk jalur sesuai nomor.
+    * 1. LLLLLUUULKLDDLDKUULLLUUU 
+    * 2. LLLLLUUULKLDDLDUKULLLUUU
+    * 3. LLUU
+    * 4. LLLLLUUULKLDDLDUULLLUUU  
  */
 
 public class AssigmentArray2D{
@@ -30,7 +30,7 @@ public class AssigmentArray2D{
         int energy = input.nextInt();
 
         System.out.print("Masukkan jalur pendakian: ");
-        String pathway = input.next();
+        String pathway = input.nextLine();
 
         int playerRow = 5;
         int playerCol = 11;
@@ -50,6 +50,7 @@ public class AssigmentArray2D{
             } else if (path == 'D' && playerRow < semeruClimb.length - 1) {
                 playerRow++;
             } else if (path == 'K') {
+
                 String currentPos = semeruClimb[playerRow][playerCol];
                 if (currentPos.equals("P2") ||
                     currentPos.equals("P3") ||
@@ -62,8 +63,11 @@ public class AssigmentArray2D{
                     System.out.println("Mohon maaf, istirahat hanya diperbolehkan di Pos yang tersedia");
                     return;
                 }
+            } else {
+                System.out.println("Tolong masukan input rute yang benar seperti L, R, U, D, K.");
+                return;
             }
-
+            
             if (energy <= 0) {
                 System.out.println("Jalur anda benar, tapi tenaga anda tidak akan kuat, coba jalur lain atau sempatkan istirahat terlebih dahulu");
                 return;
@@ -73,10 +77,7 @@ public class AssigmentArray2D{
             } else if (semeruClimb[playerRow][playerCol].equals("P")) {
                 System.out.println("Selamat Pendakian anda berhasil mencapai Puncak Mahameru, sisa tenaga anda " + energy);
                 return;
-            } else {
-                System.out.println("Anda keluar dari peta, tolong masukan jalur yang benar.");
-                return;
-            }
+            } 
         }
     }
 }
