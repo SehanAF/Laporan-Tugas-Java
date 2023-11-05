@@ -29,6 +29,8 @@ public class AssigmentArray2D{
         System.out.print("Masukkan tenaga awal: ");
         int energy = input.nextInt();
 
+        input.nextLine();
+
         System.out.print("Masukkan jalur pendakian: ");
         String pathway = input.nextLine();
 

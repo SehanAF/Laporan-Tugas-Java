@@ -1,5 +1,6 @@
 package JavaBasic.TugasArraysSechan;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class AssigmentBusStation {
         busLine.add("Tasik - Ciamis");
         busLine.add("Ciamis - Banjar");
 
-        double[] rates = {10000, 15000, 7500, 5000, 7500, 6000};
+        double[] rates = {10_000, 15_000, 7_500, 5_000, 7_500, 6_000};
 
         Scanner input = new Scanner(System.in);
 
@@ -28,6 +29,24 @@ public class AssigmentBusStation {
         String whenTNI_Polri = input.nextLine();
 
         input.close();
+        
+        // harus belajar oop
+        for (int i = 0; i < busLine.size(); i++) {
+            for (int j = i + 1; j < busLine.size(); j++) {
+                if (busLine.get(i).contains(departureCity) && busLine.get(j).contains(cityDestination)) {
+                    double rate = rates[i] + rates[j];
+                    DecimalFormat decimalFormat = new DecimalFormat("#,###");
+                    if (whenTNI_Polri.equalsIgnoreCase("ya")) {
+                        rate *= 0.9; 
+                    } else if ((busLine.equals("Sukabumi - Banjar") || busLine.equals("Banjar - Sukabumi"))) {
+                        rate *= 0.95; 
+                    }
+                    System.out.println("Harga tiket: " + decimalFormat.format(rate));
+                    break;
+                }
+                
+            }
+        }
         
     }
 }
