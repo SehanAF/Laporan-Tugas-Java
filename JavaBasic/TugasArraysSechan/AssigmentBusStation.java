@@ -1,6 +1,5 @@
 package JavaBasic.TugasArraysSechan;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -16,7 +15,6 @@ public class AssigmentBusStation {
         city.add("Ciamis");
         city.add("Banjar");
 
-
         HashMap<String, Integer> busRates = new HashMap<>();
         busRates.put("Sukabumi-Cianjur", 10000);
         busRates.put("Cianjur-Bandung", 15000);
@@ -27,15 +25,24 @@ public class AssigmentBusStation {
 
         try (Scanner input = new Scanner(System.in)){
             System.out.print("Masukkan kota keberangkatan: ");
-            String keberangkatan = input.nextLine();
+            String departureCity = input.nextLine();
 
             System.out.print("Masukkan kota tujuan: ");
-            String tujuan = input.nextLine();
+            String destinationCity = input.nextLine();
 
             System.out.print("Apakah penumpang TNI/POLRI? (ya/tidak): ");
             boolean isTniPolri = input.nextLine().equalsIgnoreCase("ya");
 
+            if (!city.contains(departureCity) || !city.contains(destinationCity)) {
+                System.out.println("Kota tidak valid!");
+                return;
+            }
 
+            if ((departureCity.equals("Sukabumi") && destinationCity.equals("Banjar")) || 
+                (departureCity.equals("Banjar") && destinationCity.equals("Sukabumi"))) {
+            }
+
+            
         } catch (Exception e) {
             
         }
