@@ -1,5 +1,6 @@
 package JavaBasic.TugasArraysSechan;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -30,19 +31,35 @@ public class AssigmentBusStation {
             System.out.print("Masukkan kota tujuan: ");
             String destinationCity = input.nextLine();
 
-            System.out.print("Apakah penumpang TNI/POLRI? (ya/tidak): ");
-            boolean isTniPolri = input.nextLine().equalsIgnoreCase("ya");
-
             if (!city.contains(departureCity) || !city.contains(destinationCity)) {
                 System.out.println("Kota tidak valid!");
                 return;
             }
 
+            int indexDepartureCity = city.indexOf(departureCity);
+            int indexDestinationCity = city.indexOf(destinationCity);
+            int totalRate = 0;
+
+            int step = indexDepartureCity < indexDestinationCity ? 1 : -1;
+            while (indexDepartureCity != indexDestinationCity) {
+                int indexNext = indexDepartureCity + step;
+                String rute = city.get(indexDepartureCity) + "-" + city.get(indexNext);
+                if (!busRates.containsKey(rute)) {
+                    rute = city.get(indexNext) + "-" + city.get(indexDepartureCity);
+                }
+                totalRate += busRates.get(rute);
+                indexDepartureCity = indexNext;
+            }
+
+            System.out.print("Apakah penumpang TNI/POLRI? (ya/tidak): ");
+            boolean isTniPolri = input.nextLine().equalsIgnoreCase("ya");
+
             if ((departureCity.equals("Sukabumi") && destinationCity.equals("Banjar")) || 
                 (departureCity.equals("Banjar") && destinationCity.equals("Sukabumi"))) {
             }
-
             
+            DecimalFormat decimalFormat = new DecimalFormat("#,###");
+            System.out.println("Total tarif: Rp " + decimalFormat.format(totalRate));
         } catch (Exception e) {
             
         }
