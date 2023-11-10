@@ -56,14 +56,18 @@ public class AssigmentBusStation {
 
             if ((departureCity.equals("Sukabumi") && destinationCity.equals("Banjar")) || 
                 (departureCity.equals("Banjar") && destinationCity.equals("Sukabumi"))) {
+                totalRate *= 0.95;
+            }
+            
+            if (isTniPolri) {
+                totalRate *= 0.9; 
             }
             
             DecimalFormat decimalFormat = new DecimalFormat("#,###");
             System.out.println("Total tarif: Rp " + decimalFormat.format(totalRate));
+
         } catch (Exception e) {
-            
-        }
-        
-        
+            e.printStackTrace();
+        }       
     }
 }
