@@ -1,6 +1,6 @@
 package Tugas10Sort;
 
-public class NomorB {
+public class NomorC {
     public static void main(String[] args) {
         String[] data = {"Semarang", "Malang", "Jakarta", "Cianjur", "Bogor", "Denpasar"};
 
